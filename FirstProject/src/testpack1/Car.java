@@ -2,14 +2,21 @@ package testpack1;
 
 public class Car 
 {
+	int num = 900;
+	
+	Car()
+	{
+		
+	}
+
 	public static void displaySkodaCarProperties()
 	{
 //		Car c = new Car();
+		
+
 
 
 		System.out.println("Code from GitHub");
-
-
 
 		
 		String color = "Red";
@@ -46,7 +53,7 @@ public class Car
 		displayBMWCarProperties();
 		
 		
-		
+		Car c1 = new Car();
 		
 		
 	}
