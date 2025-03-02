@@ -2,11 +2,10 @@ package oops_discussion;
 
 public class Class_1 
 {
-
-//	public Class_1()
-//	{
-//		System.out.println("Class_1 Constructor");
-//	}
+	public Class_1()
+	{
+		System.out.println("Class_1 Constructor");
+	}
 	
 	public Class_1(int a)
 	{

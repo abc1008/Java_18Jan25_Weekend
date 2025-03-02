@@ -1,5 +1,7 @@
 package testpack1;
 
+import access_modifier.Class_A;
+
 public class ConstructorDemo {
 	
 	int a;
@@ -51,8 +53,7 @@ public class ConstructorDemo {
 //		ConstructorDemo c3 = new ConstructorDemo("");
 //		System.out.println(c3.a);
 		
-		
-		
+
 		
 	}
 
