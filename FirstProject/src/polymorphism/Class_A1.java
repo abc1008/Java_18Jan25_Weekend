@@ -3,43 +3,36 @@ package polymorphism;
 public class Class_A1 
 {
 	
-	public int m1()
+	int num1 = 100;
+	static int num2 = 5000;
+	
+	
+	static void m1()
 	{
 		System.out.println("m1");
-		
-		return 8;
 	}
 	
-	public int m1(int a)
+	public int m1(int a)   // Overridden  
 	{
-		System.out.println("1 arg int - m1");
-		
+		System.out.println("m1 of Parent - 1 arg int");
 		return 5;
 	}
 	
-	private int m2(int a, boolean b)
+	public void m2()
 	{
 		System.out.println("1 arg int - m1");
-		
+	}
+	
+	public void m2(int a)  // Overloaded
+	{
+		System.out.println("m2 from parent - 1 arg int");
+	}
+	
+	public static int m3(int a)   // Overridden  
+	{
+		System.out.println("m3 of Parent - 1 arg int");
 		return 5;
 	}
-	
-	public static void m1(char a)
-	{
-		System.out.println("1 arg char - m1");
-	}
-	
-	void m1(int v, char a)
-	{
-		System.out.println("1 arg char - m1");
-	}
-	
-	
-	public void m1(char a, int v)
-	{
-		System.out.println("1 arg char - m1");
-	}
-	
 
 
 }
