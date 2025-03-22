@@ -35,6 +35,8 @@ public class Class_A1 implements Interface_1
 		a1.m2();
 		a1.m3();
 		
+
+		
 		System.out.println();
 		System.out.println("*** interface ref + implementation class obj ***");
 		System.out.println();
@@ -46,6 +48,10 @@ public class Class_A1 implements Interface_1
 		
 		
 		Interface_1.m4();  // static method calling
+		
+		
+		
+//		Object  // Parent class of all User Defined classest
 		
 	}
 	
