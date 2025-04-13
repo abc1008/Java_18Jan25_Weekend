@@ -28,7 +28,6 @@ public class Login
 		Thread.sleep(3000);
 	    driver.findElement(By.xpath("//input[contains(@class,'btn-primary')]")).click();
 	    
-	    
 
 	    
 	    Thread.sleep(3000);
