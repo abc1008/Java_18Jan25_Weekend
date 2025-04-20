@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import utility.JsMethods;
+
 public class Checkbox {
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -20,14 +22,17 @@ public class Checkbox {
 		WebElement chkbx1 = driver.findElement(By.xpath("//input[@id='checkbox1']"));
 		
 		// perform scroll until the given webelement
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-//		js.executeScript("arguments[0].scrollIntoView();", chkbx1);
+//		JavascriptExecutor js = (JavascriptExecutor)driver;
+////		js.executeScript("arguments[0].scrollIntoView();", chkbx1);
+		
+		
+		JsMethods.scrollTo(driver, chkbx1);
 		
 		
 		Thread.sleep(3000);
 //		chkbx1.click();
 		
-		js.executeScript("arguments[0].click();", chkbx1);
+//		js.executeScript("arguments[0].click();", chkbx1);
 		
 		
 		System.out.println("Completed");
