@@ -1,6 +1,7 @@
 package pack1;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -8,7 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class Excelhandle {
+public class ExcelWrite {
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -19,20 +20,17 @@ public class Excelhandle {
 		FileInputStream file = new FileInputStream(path); // handle file on the path
 		XSSFWorkbook wb = new XSSFWorkbook(file);  // load/open the file
 		XSSFSheet sheet = wb.getSheet("Sheet7");
-		XSSFRow row = sheet.getRow(1);
-		XSSFCell cell = row.getCell(0);
-		
-		String data = cell.getStringCellValue();
-		System.out.println(data);
+		XSSFRow row = sheet.getRow(2);
+		XSSFCell cell = row.getCell(1);
 		
 		
 		
-		XSSFRow row2 = sheet.getRow(1);
-		XSSFCell cell2 = row.getCell(1);
-		double numData = cell2.getNumericCellValue();
-		System.out.println(numData);
+		FileOutputStream fout = new FileOutputStream(path);
 		
+		cell.setCellValue(true);
+		wb.write(fout);
 		
+		System.out.println("Competed");
 		
 		
 	}
