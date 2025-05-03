@@ -7,24 +7,25 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestClass3 
+public class TestClass4 
 {
 	
-	@Test(groups = "Sanity")
+	@Test
 	public void TestCase4()
 	{
 		System.out.println("TestCase4");
+//		Assert.fail();
 		
 	}
 	
-	@Test(groups = "Regression")
+	@Test(dependsOnMethods = "TestCase4")
 	public void TestCase6()
 	{
 		System.out.println("TestCase6");
-//		Assert.fail();
+//		
 	}
 	
-	@Test(groups = "Sanity")
+	@Test(dependsOnMethods = "pack1.TestClass5.TestCase3")
 	public void TestCase5()
 	{
 		System.out.println("TestCase5");
