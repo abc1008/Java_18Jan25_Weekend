@@ -28,6 +28,7 @@ public class TestClass3
 	public void TestCase5()
 	{
 		System.out.println("TestCase5");
+		Assert.fail();
 	}
 	
 	@BeforeTest
@@ -53,6 +54,12 @@ public class TestClass3
 	public void afterSuite()
 	{
 		System.out.println("AfterSuite");
+	}
+	
+	@Test(dependsOnGroups = "Sanity")
+	public void TestCase9()
+	{
+		System.out.println("TestCase9");
 	}
 	
 	

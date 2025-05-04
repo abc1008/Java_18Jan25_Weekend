@@ -17,4 +17,23 @@
       </class>
     </classes>
   </test> <!-- Test -->
+  
+    <test thread-count="5" name="Test">
+    <classes>
+      <class name="pack1.TestClass3">
+      	<methods>
+      		<exclude name="TestCase5"></exclude>
+      		<exclude name="TestCase4"></exclude>
+      	</methods>
+      </class>
+      <class name="pack1.TestClass2">
+      	<methods>
+      		<include name="TestCase1"></include>
+  			<include name="TestCase2"></include>
+      	</methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  
 </suite> <!-- Suite -->
