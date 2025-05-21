@@ -13,6 +13,8 @@ public class LoginPage {
 	private static final String emailTextBoxXpath = "//input[@placeholder='Email']";
 	private static final String passwordTextBoxXpath = "//input[@placeholder='Password']";
 	private static final String buttonLoginXpath = "//button[@type='submit']";
+	private static final String buttonNewVersionXpath = "//b[text()='New Version']";
+	
 	
 	
 	// web-elemets
@@ -24,6 +26,10 @@ public class LoginPage {
 	
 	@FindBy(xpath = buttonLoginXpath) 
 	private WebElement buttonLogin;
+	
+	@FindBy(xpath = buttonNewVersionXpath) 
+	private WebElement buttonNewVersion;
+	
 	
 	
 	// constructor
@@ -43,6 +49,8 @@ public class LoginPage {
 		
 		Thread.sleep(3000);
 		System.out.println("Login Success");
+		
+		buttonNewVersion.click();
 	}
 	
 	
