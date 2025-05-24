@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeSuite;
 
 import page_classes.HeaderPage;
 import page_classes.LoginPage;
+import utility.ExtentReportHelper;
 
 public class BaseClass {
 	
@@ -23,12 +24,14 @@ public class BaseClass {
 		driver = new EdgeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();  
+		ExtentReportHelper extentReportHelper = new ExtentReportHelper();
 		driver.get("https://devsite.testometer.co.in/login");
 	}
 	
 	@BeforeMethod
 	public void login() throws InterruptedException
 	{
+		ExtentReportHelper.startTest("Test Case");
 		LoginPage lp = new LoginPage(driver);
 		lp.login();
 	}
@@ -38,6 +41,7 @@ public class BaseClass {
 	{
 		HeaderPage hp = new HeaderPage(driver);
 		hp.logout();
+		ExtentReportHelper.endTest();
 	}
 	
 	

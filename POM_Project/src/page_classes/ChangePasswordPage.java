@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utility.ConfigReader;
 import utility.ExplicitWait;
+import utility.ExtentReportHelper;
 
 public class ChangePasswordPage 
 {
@@ -50,32 +51,37 @@ public class ChangePasswordPage
 	
 	// methods 
 	
-	public void changePassword() throws InterruptedException, IOException
+	public boolean changePassword() throws InterruptedException, IOException
 	{
+		boolean testReult = true;
 		
 		try 
 		{
 			textBoxPassword.sendKeys(ConfigReader.readData("Password"));
+			ExtentReportHelper.logInfo("Entered Password");
 			textBoxConfPassword.sendKeys(ConfigReader.readData("Password"));
+			ExtentReportHelper.logInfo("Entered Confirm Password");
 			
 			buttonUpdate.click();
-			
+			ExtentReportHelper.logInfo("Clicked on update button");
 			
 			if(successMsg.size() > 0)
 			{
-				System.out.println("Password Changed.");
+				ExtentReportHelper.logPass("Password Changed.");
 			}
 			else
 			{
-				System.out.println("Failed to Change Password.");
+				ExtentReportHelper.logFail("Failed to Change Password.");
+				testReult = false;
 			}
-			
 
 			ExplicitWait.waitUntilEleInvisible(driver, successMsg.get(0));
+			return testReult;
 		} 
 		catch (IOException e) 
 		{
-			System.out.println("Exception in method 'changePassword' : "+ e.getMessage());
+			ExtentReportHelper.logFail("Exception in method 'changePassword' : "+ e.getMessage());
+			return false;
 		}
 	}
 

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.ExtentReportHelper;
+
 public class LoginPage {
 	
 //	private WebDriver driver;
@@ -48,9 +50,10 @@ public class LoginPage {
 		buttonLogin.click();
 		
 		Thread.sleep(3000);
-		System.out.println("Login Success");
+		ExtentReportHelper.logPass("Login Successful");
 		
 		buttonNewVersion.click();
+
 	}
 	
 	

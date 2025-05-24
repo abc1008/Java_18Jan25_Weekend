@@ -8,8 +8,8 @@
           <include name="tc_123_ChangePasswordTest"/>
           <include name="login"/>
           <include name="launchBrowser"/>
-          <include name="closeBrowser"/>
           <include name="logout"/>
+          <include name="closeBrowser"/>
         </methods>
       </class> <!-- testSuites.ChangePasswordTestSuite -->
     </classes>

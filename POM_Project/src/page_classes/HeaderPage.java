@@ -1,9 +1,13 @@
 package page_classes;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import utility.ExtentReportHelper;
 
 public class HeaderPage {
 	
@@ -13,7 +17,7 @@ public class HeaderPage {
 	private static final String textBoxPasswordXpath = "//input[@name='password']";
 	private static final String textBoxConfPasswordXpath = "//input[@name='confirm_pass']";
 	private static final String optionLogoutXpath = "	//span[text()='Logout']";
-	
+	private static final String buttonUpdateXpath = "//button[text()='Update']";
 	
 	// web-elemets
 	@FindBy(id = profileIconById) 
@@ -31,6 +35,10 @@ public class HeaderPage {
 	
 	@FindBy(xpath = optionLogoutXpath) 
 	private WebElement optionLogout;
+	
+	@FindBy(xpath = buttonUpdateXpath) 
+	private List<WebElement> buttonUpdate;
+	
 
 	
 	// constructor
@@ -41,16 +49,30 @@ public class HeaderPage {
 	
 	
 	// methods 
-	public void selectChangePassword() throws InterruptedException
+	public boolean selectChangePassword() throws InterruptedException
 	{
+		boolean testResult = false;
 		try
 		{
 			profileIcon.click();
 			changePasswordOption.click();	
+			
+			if(buttonUpdate.size() > 0)
+			{
+				ExtentReportHelper.logPass("Selected Change Password option from profile icon");
+				testResult = true;
+			}
+			else
+			{
+				ExtentReportHelper.logFail("Failed to selected Change Password option from profile icon");
+			}
+			
+			return testResult;
 		}
 		catch (Exception e) 
 		{	
-			System.out.println("Exception in method 'selectChangePassword' : "  + e.getMessage());// TODO: handle exception
+			ExtentReportHelper.logFail("Exception in method 'selectChangePassword' : "  + e.getMessage());
+			return false;
 		}
 
 	}
@@ -62,10 +84,12 @@ public class HeaderPage {
 			profileIcon.click();
 			
 			optionLogout.click();
-		}
-		catch (Exception e) {
 			
-			System.out.println("Exception in method 'logout' : "  + e.getMessage());
+			ExtentReportHelper.logPass("Logout Successful");
+		}
+		catch (Exception e) 
+		{
+			ExtentReportHelper.logFail("Exception in method 'logout' : "  + e.getMessage());
 		}
 
 	}

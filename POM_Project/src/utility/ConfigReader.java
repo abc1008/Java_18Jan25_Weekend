@@ -24,7 +24,7 @@ public class ConfigReader {
 		
 		String data = prop.getProperty(propertyName);  // read the data from file
 		
-		System.out.println(data);
+//		System.out.println(data);
 		
 		return data;
 	}
