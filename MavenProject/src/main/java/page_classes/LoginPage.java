@@ -5,17 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.ExplicitWait;
 import utility.ExtentReportHelper;
 
 public class LoginPage {
 	
-//	private WebDriver driver;
+	private WebDriver driver;
 	
 	// locators
 	private static final String emailTextBoxXpath = "//input[@placeholder='Email']";
 	private static final String passwordTextBoxXpath = "//input[@placeholder='Password']";
 	private static final String buttonLoginXpath = "//button[@type='submit']";
-	private static final String buttonNewVersionXpath = "//b[text()='New Version']";
+	private static final String profileIconByXpath = "//button[@id='page-header-user-dropdown']";
 	
 	
 	
@@ -29,14 +30,15 @@ public class LoginPage {
 	@FindBy(xpath = buttonLoginXpath) 
 	private WebElement buttonLogin;
 	
-	@FindBy(xpath = buttonNewVersionXpath) 
-	private WebElement buttonNewVersion;
+	@FindBy(xpath = profileIconByXpath) 
+	private WebElement profileIcon;
 	
 	
 	
 	// constructor
 	public LoginPage(WebDriver driver)
 	{
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -49,10 +51,10 @@ public class LoginPage {
 		textBoxPassword.sendKeys("abcd@1234");
 		buttonLogin.click();
 		
-		Thread.sleep(3000);
+		ExplicitWait.waitUntilEleVisible(driver, profileIcon);
+		
 		ExtentReportHelper.logPass("Login Successful");
 		
-		buttonNewVersion.click();
 
 	}
 	

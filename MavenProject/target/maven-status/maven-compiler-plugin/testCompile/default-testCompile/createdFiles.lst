@@ -1,0 +1,6 @@
+testScript_classes\LoginTestScript.class
+testSuites\LoginTestSuite.class
+all_Objects\TestometerApp.class
+testScript_classes\ChangePasswordScript.class
+testSuites\ChangePasswordTestSuite.class
+basePack\BaseClass.class

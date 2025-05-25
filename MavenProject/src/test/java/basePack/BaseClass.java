@@ -21,6 +21,7 @@ public class BaseClass {
 	@BeforeSuite
 	public void launchBrowser() throws IOException
 	{
+		
 		driver = new EdgeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();  
