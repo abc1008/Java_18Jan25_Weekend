@@ -52,7 +52,7 @@ public class ChangePasswordPage
 	// methods 
 	
 	public boolean changePassword() throws InterruptedException, IOException
-	{
+	{	
 		System.out.println("This is new branch.");
 		
 		boolean testReult = true;
